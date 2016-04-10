@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<parameters>
+					<parameter name="worldHeight" displayName="World Height" type="int" 
+						defaultValue="20" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
+						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="initialNumAgents" displayName="Initial Agent Number" type="int" 
+						defaultValue="20" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="worldWidth" displayName="World Width" type="int" 
+						defaultValue="20" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		</parameters>
+
+
