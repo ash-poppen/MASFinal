@@ -13,7 +13,6 @@ import repast.simphony.util.ContextUtils;
  *
  */
 public class ShakeAgent {
-	private static final int DISEASEDEATHTIME = 10;
 	int accumulatedValue;
 	boolean dead;
 	int diseaseAge;
@@ -36,7 +35,9 @@ public class ShakeAgent {
 		GridPoint point = grid.getLocation(this);
 		
 		if (isDiseased) {
-			if (++diseaseAge > DISEASEDEATHTIME) {
+			Parameters params = RunEnvironment.getInstance().getParameters();
+			int diseaseDeathTime = (int) params.getValue("diseaseDeathTime"); 
+			if (++diseaseAge > diseaseDeathTime) {
 				die();
 			}
 		}

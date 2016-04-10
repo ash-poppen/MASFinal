@@ -12,6 +12,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
+				<parameter name="diseaseDeathTime" displayName="Time From Contraction to Death" type="int" 
+						defaultValue="100" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="initialNumAgents" displayName="Initial Agent Number" type="int" 
 						defaultValue="20" 
 						isReadOnly="false" 
