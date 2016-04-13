@@ -39,7 +39,7 @@ public class BeliefState {
 	 * @return False if no beliefs are held about the agent, otherwise whatever
 	 * the status of the agent is believed to be
 	 */
-	public boolean isBelievedSick(ShakeAgent a) {
+	public boolean isBelievedSick(Agent a) {
 		if (!this.beliefStatus.containsKey(a)) return false;
 		else return this.beliefStatus.get(a);
 	}

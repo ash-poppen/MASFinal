@@ -12,7 +12,7 @@ import repast.simphony.util.ContextUtils;
  * @author PaulQuint
  *
  */
-public class ShakeAgent {
+public class ShakeAgent extends Agent {
 	/** 
 	 * Value in range [0,1]. Represents the proportion of time that has passed
 	 * between disease contraction and the time when the disease kills the
@@ -33,19 +33,9 @@ public class ShakeAgent {
 	
 
 	/**
-	 * The state of the agent's beliefs about other agents' illness
-	 */
-	BeliefState beliefs;
-	
-	/**
 	 * The number of handshakes accomplished
 	 */
 	int handshakes;
-	
-	/**
-	 * Whether the agent has died of their disease
-	 */
-	boolean dead;
 	
 	public ShakeAgent(float propensityToLie, float paranoiaLevel) {
 		this.dead = false;
@@ -61,6 +51,7 @@ public class ShakeAgent {
 		dead = true;
 	}
 	
+	@Override
 	@ScheduledMethod(start = 0, interval = 1)
 	public void step() {
 		Context space = ContextUtils.getContext(this);
@@ -77,7 +68,8 @@ public class ShakeAgent {
 		}
 	}
 	
-	public void shake(ShakeAgent other) {
+	@Override
+	public void shake(Agent other) {
 		this.handshakes++;
 	}
 }

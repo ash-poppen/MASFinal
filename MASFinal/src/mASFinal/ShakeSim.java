@@ -34,7 +34,7 @@ public class ShakeSim implements ContextBuilder<Object> {
 		for (int i = 0; i < numAgents; i++) {
 			double lie = RandomHelper.nextDoubleFromTo(0, 1);
 			double paranoia = RandomHelper.nextDoubleFromTo(0, 1);
-			ShakeAgent agent = new ShakeAgent(i, i);
+			Agent agent = new ShakeAgent(i, i);
 			context.add(agent);
 			int x = RandomHelper.nextIntFromTo(0, xDim - 1);
 			int y = RandomHelper.nextIntFromTo(0, yDim - 1);
