@@ -1,9 +1,13 @@
 package mASFinal;
 
+import java.util.Random;
+
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
+import repast.simphony.random.RandomHelper;
+import repast.simphony.space.Direction;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -38,11 +42,11 @@ public class ShakeAgent extends Agent {
 	int handshakes;
 	
 	public ShakeAgent(float propensityToLie, float paranoiaLevel) {
+		super();
 		this.dead = false;
 		this.infectionLevel = 0;
 		this.propensityToLie = propensityToLie;
 		this.paranoiaLevel = paranoiaLevel;
-		this.beliefs = new BeliefState();
 	}
 
 	public void die() {
@@ -58,6 +62,7 @@ public class ShakeAgent extends Agent {
 		Grid grid = (Grid)space.getProjection("grid");
 		GridPoint point = grid.getLocation(this);
 		
+		// Update disease
 		if (this.infectionLevel > 0) {
 			Parameters params = RunEnvironment.getInstance().getParameters();
 			float diseaseDeathTime = (float) params.getValue("diseaseDeathTime");
@@ -65,6 +70,15 @@ public class ShakeAgent extends Agent {
 			if (this.infectionLevel >= 1) {
 				die();
 			}
+		}
+		
+		// If not otherwise engaged, roam randomly
+		if (!this.isBusy) {			
+			int[] randomDisplacement = { RandomHelper.nextIntFromTo(-1, 1), RandomHelper.nextIntFromTo(-1, 1) };
+			int[] targetLocation = { 0, 0 };
+			grid.getLocation(this).toIntArray(targetLocation);	// this puts the integer coordinates into the array
+			grid.getGridPointTranslator().translate(targetLocation, randomDisplacement);		
+			if (grid.getRandomObjectAt(targetLocation) == null) grid.moveTo(this, targetLocation);
 		}
 	}
 	

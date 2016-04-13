@@ -14,6 +14,8 @@ public abstract class Agent {
 	 * The state of the agent's beliefs about other agents' illness
 	 */
 	protected BeliefState beliefs;
+	
+	protected boolean isBusy;
 
 	public abstract void shake(Agent other);
 
@@ -26,6 +28,8 @@ public abstract class Agent {
 
 	public Agent() {
 		super();
+		this.isBusy = false;
+		this.beliefs = new BeliefState();
 	}
 
 }
