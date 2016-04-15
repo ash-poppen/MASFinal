@@ -29,7 +29,9 @@
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
-		/>
-		</parameters>
+		/><parameter name="recentListSize" displayName="Recent List Size" type="int" defaultValue="5"
+					isReadOnly="false" converter="repast.simphony.parameter.StringConverterFactory$IntConverter">
+</parameter>
+</parameters>
 
 

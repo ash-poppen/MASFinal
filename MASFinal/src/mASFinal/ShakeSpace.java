@@ -18,7 +18,7 @@ import repast.simphony.space.grid.WrapAroundBorders;
  */
 public class ShakeSpace extends DefaultContext<Object> {
 	Parameters params = RunEnvironment.getInstance().getParameters();
-	
+	private int recentListSize = (Integer)params.getValue("recentListSize");
 	private int xDim = (Integer)params.getValue("worldWidth");
 	private int yDim = (Integer)params.getValue("worldHeight");
 	

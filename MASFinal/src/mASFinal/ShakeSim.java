@@ -24,7 +24,7 @@ public class ShakeSim implements ContextBuilder<Object> {
 		context.setId("ShakeSim");
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		int numAgents = (Integer)params.getValue("initialNumAgents");
-		
+		int recentListSize = (Integer)params.getValue("recentListSize");
 		int xDim = (Integer)params.getValue("worldWidth");
 		int yDim = (Integer)params.getValue("worldHeight");
 		Grid<Object> grid = GridFactoryFinder.createGridFactory(null)
@@ -43,6 +43,8 @@ public class ShakeSim implements ContextBuilder<Object> {
 				y = RandomHelper.nextIntFromTo(0, yDim - 1);
 			}
 		}
+		double
+		
 		
 		int endTime = (Integer)params.getValue("endTime");
 		if (RunEnvironment.getInstance().isBatch()) {

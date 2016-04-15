@@ -8,10 +8,13 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author drkwint
+ * @author Paul Quint
+ * @author Ashley Dyer
+ * @author Aaron Post
+ * 
  * The beliefs an agent holds about other agents' infection status
  * 
- * Beliefs are combined at handshake, keeping all the most recent info about
+ * Beliefs are combined at handshake, keeping the most recent info about
  * each agent.
  */
 public class BeliefState {
@@ -24,7 +27,7 @@ public class BeliefState {
 	Map<ShakeAgent, Boolean> beliefStatus;
 	
 	/**
-	 * beliefTime is the tick timestamp at which the latest information heard
+	 * beliefTime is the tick time stamp at which the latest information heard
 	 * 		about the agent was generated
 	 */
 	Map<ShakeAgent, Integer> beliefTime;
